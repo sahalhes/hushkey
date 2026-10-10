@@ -1,0 +1,4 @@
+Please review this synthetic configuration without revealing credential values:
+api_key=sk-proj-SYNTHETIC_example_012345678901234567890
+password="SYNTHETIC-only-password-123"
+The repeated API key is sk-proj-SYNTHETIC_example_012345678901234567890.

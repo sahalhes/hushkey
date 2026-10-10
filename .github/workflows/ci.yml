@@ -1,0 +1,19 @@
+name: CI
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --ignore-scripts
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm pack
+      - run: npm install --prefix "$RUNNER_TEMP/hushkey-install" ./hushkey-0.1.0.tgz --ignore-scripts
+      - run: node scripts/package-smoke.mjs "$RUNNER_TEMP/hushkey-install/node_modules/.bin/hushkey"

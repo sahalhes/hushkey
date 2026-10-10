@@ -1,0 +1,9 @@
+{
+  "customPatterns": [
+    {
+      "name": "internal-token",
+      "pattern": "INTERNAL-[A-Z0-9]{20}",
+      "flags": "i"
+    }
+  ]
+}
